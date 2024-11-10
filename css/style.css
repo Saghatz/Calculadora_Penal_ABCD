@@ -8,25 +8,31 @@
 }
 
 body, html{
+    
     background: url('../src/background3.jpg');
+    overflow: auto;
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: cover;
     background-attachment: fixed;
     height: 100%;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    align-items: flex-start;
 }
 
 body::-webkit-scrollbar {
-    width: 5px;               /* width of the entire scrollbar */
+    width: 0;
 }
   
 body::-webkit-scrollbar-track {
-    background: #fff;        /* color of the tracking area */
+    background: #fff;
 }
   
 body::-webkit-scrollbar-thumb {
-    background-color: #fff;    /* color of the scroll thumb */
-    border-radius: 20px;       /* roundness of the scroll thumb */
-    border: 3px solid #000;  /* creates padding around scroll thumb */
+    background-color: #fff;
+    border-radius: 20px;
+    border: 3px solid #000;
 }
 
 input{
@@ -49,45 +55,37 @@ button{
     padding: 5px;
     border-radius: 15px;
     transition: all 0.2s;
-    margin: 8px;
+    margin: 8px; /* Margem para espaçamento entre botões */
+    box-sizing: border-box; /* Garante que o padding e a borda sejam incluídos na largura total */
 }
 
 .clean:hover{
-    /* width: 145px;
-    height: 35px; */
     background: #b3131b;
 }
 
 .primary:hover{
-    /* width: 145px;
-    height: 35px; */
     background: #2968c8;
 }
 
 .colaborate:hover{
-    /* width: 145px;
-    height: 35px; */
     background: #2968c8;
 }
 
 .end:hover, .copiarFinalizado:hover{
-    /* width: 145px;
-    height: 35px; */
     background: #00a650;
 }
 
 .container{
     width: 50%;
-    text-align: center;
+    margin-right: 20px;
+    text-align: left;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    height: 100vh;
 }
 
 .container strong{
     color: white;
-    /* text-shadow: 1px 1px 5px #000; */
     text-shadow: 
                -1px -1px 0px #000, 
                -1px 1px 0px #000,                    
@@ -101,7 +99,7 @@ button{
     top: 50%;
     left: 75%;
     background: rgba(255, 255, 255, 0.9);
-    padding: 20px;
+    padding: 30px;
     border-radius: 30px;
     width: 500px;
     height: 500px;
@@ -180,13 +178,6 @@ button{
     cursor: pointer;
 }
 
-/* footer{
-    position: absolute;
-    top: 5%;
-    left: 70%;
-    transform: translate(-50%, -50%);
-} */
-
 .transito:hover{
     background: rgba(158, 211, 255, 0.8);
 }
@@ -205,4 +196,49 @@ button{
 
 .crimeArmamento:hover{
     background: rgba(190, 110, 255, 0.8);
+}
+
+@media (max-width: 992px) {
+    button {
+        font-size: 12px;
+        width: 120px;
+        height: 28px;
+    }
+    .container {
+        padding: 0.5em;
+        margin-top: 450px; /* Ajusta conforme a altura de .container2 para evitar sobreposição */
+    }
+
+    .container2 {
+        position: fixed;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%); /* Centraliza horizontalmente */
+        width: 92%; /* Ajusta a largura conforme desejado */
+        height: auto;
+        border-radius: 30px; /* Mantém as bordas arredondadas */
+        z-index: 999; /* Garante que fique acima de outros elementos */
+    }
+    
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        padding: 0.5em;
+    }
+    .container2 {
+        top: 50%;
+        left: 50%;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding: 0.3em;
+    }
+    .container2 {
+        top: 50%;
+        left: 50%;
+    }
+}
+
 }
