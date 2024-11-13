@@ -731,7 +731,7 @@ $('document').ready(() => {
 
         alert(`Multar 1,5x o valor que estava sendo portado`)
         const qtdDinheiro = prompt(`Qual o valor de dinheiro sujo estava sendo portado?`);
-        const TotalDinheiro = qtdDinheiro*0.15;
+        const TotalDinheiro = qtdDinheiro*1.5;
         const TotalDinheiro2 = TotalDinheiro/100/10;
 
         const multaTotal = (Number(multaAntiga) + Number(TotalDinheiro2));
