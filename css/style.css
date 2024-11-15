@@ -219,6 +219,15 @@ button{
         border-radius: 30px; /* Mantém as bordas arredondadas */
         z-index: 999; /* Garante que fique acima de outros elementos */
     }
+
+    .voltarFinalizado, .copiarFinalizado{
+        margin-top: 130px;
+    }
+
+    .finalizado{
+        margin-top: 210px;
+    }
+
     
 @media (max-width: 768px) {
     .container {
