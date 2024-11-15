@@ -723,19 +723,13 @@ $('document').ready(() => {
 
     $('#289').on('click', () => {
         const input = $('#TotalArtigos').html();
-        const meses = 0;
+        const meses = 10;
         const mesesAntigo = $('#meses').html();
         const mesesTotal = (Number(mesesAntigo) + Number(meses));
-        const multa = 0;
+        const multa = 0.10;
         const multaAntiga =  $('#multa').html();
-
-        alert(`Multar 1,5x o valor que estava sendo portado`)
-        const qtdDinheiro = prompt(`Qual o valor de dinheiro sujo estava sendo portado?`);
-        const TotalDinheiro = qtdDinheiro*1.5;
-        const TotalDinheiro2 = TotalDinheiro/100/10;
-
-        const multaTotal = (Number(multaAntiga) + Number(TotalDinheiro2));
-        const fianca = 0;
+        const multaTotal = (Number(multaAntiga) + Number(multa));
+        const fianca = 20;
         const fiancaAntiga = $('#fianca').html();
         const fiancaTotal = (Number(fiancaAntiga) + Number(fianca));
         $('#TotalArtigos').html(`${input}289, `)
@@ -965,6 +959,23 @@ $('document').ready(() => {
         const fiancaAntiga = $('#fianca').html();
         const fiancaTotal = (Number(fiancaAntiga) + Number(fianca));
         $('#TotalArtigos').html(`${input}18, `)
+        $('#multa').html(`${multaTotal.toFixed(3)}`)
+        $('#meses').html(`${mesesTotal}`)
+        // $('#fianca').html(`${fiancaTotal.toFixed(3)}`)
+    });
+
+    $('#251').on('click', () => {
+        const input = $('#TotalArtigos').html();
+        const meses = 60;
+        const mesesAntigo = $('#meses').html();
+        const mesesTotal = (Number(mesesAntigo) + Number(meses));
+        const multa = 0.50;
+        const multaAntiga =  $('#multa').html();
+        const multaTotal = (Number(multaAntiga) + Number(multa));
+        const fianca = 0;
+        const fiancaAntiga = $('#fianca').html();
+        const fiancaTotal = (Number(fiancaAntiga) + Number(fianca));
+        $('#TotalArtigos').html(`${input}251, `)
         $('#multa').html(`${multaTotal.toFixed(3)}`)
         $('#meses').html(`${mesesTotal}`)
         // $('#fianca').html(`${fiancaTotal.toFixed(3)}`)
