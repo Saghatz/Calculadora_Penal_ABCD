@@ -1090,7 +1090,7 @@ function finalizar(){
     let meses = $('#meses').html();
     const name = $('#name').val();
     const cpf = $('#cpf').val();
-    const rg = $('#rg').val();
+
 
     if(meses >= 60){
         meses = 60
@@ -1118,7 +1118,6 @@ function finalizar(){
     label1.innerHTML = `
         Nome: ${name}
         <br>CPF: ${cpf}
-        <br>RG: ${rg.toUpperCase()}
         <br>Artigos: ${artigos}
         <br>Pena: ${meses} Meses
         <br>Multa: R$ ${multa}
@@ -1126,7 +1125,6 @@ function finalizar(){
 
     //ATUALIZAÇÃO 0.1 FOI RETIRADO ESSES ITENS
     // label2.innerText = `CPF: ${cpf}`;
-    // label3.innerText = `RG: ${rg.toUpperCase()}`;
     // label4.innerHTML = `Artigos: ${artigos}`;
     // label5.innerHTML = `Pena: ${meses} Meses`;
     // label6.innerHTML = `Multa: R$ ${multa}`;
@@ -1136,7 +1134,7 @@ function finalizar(){
     
     //ATUALIZAÇÃO 0.1 FOI ADICIONADO ESSA VARIÁVEL DE FICHA
     const ficha =
-        `Nome: ${name} \nCPF: ${cpf} \nRG: ${rg.toUpperCase()} \nArtigos: ${artigos} \nPena: ${meses} Meses \nMulta: R$ ${multa}`;
+        `Nome: ${name} \nCPF: ${cpf}  \nArtigos: ${artigos} \nPena: ${meses} Meses \nMulta: R$ ${multa}`;
 
     //ATUALIZAÇÃO 0.1 FOI ADICIONADO ESSE BOTÃO DE COPIAR A FICHA
     function copy(){
