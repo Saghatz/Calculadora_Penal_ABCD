@@ -54,7 +54,7 @@ $(document).ready(() => {
         "150": { nome: "Invasão", fianca: 3300, meses: 0 },
         "165": { nome: "Dirigir sob efeito de álcool/drogas", fianca: 4500, meses: 10 },
         "173": { nome: "Racha / corrida ilegal", fianca: 5100, meses: 10 },
-        "251": { nome: "Posse/Porte colete balístico", fianca: 4900, meses: 10 },
+        "251-2": { nome: "Posse/Porte colete balístico", fianca: 4900, meses: 10 },
         "287": { nome: "Apologia ao crime", fianca: 6100, meses: 5 },
         "289": { nome: "Posse de dinheiro sujo", fianca: 2000, meses: 5 },
         "330": { nome: "Desobediência", fianca: 8000, meses: 10 },
@@ -209,6 +209,10 @@ function copiarTexto(tipo) {
             alert('Tipo de cópia inválido.');
             return;
     }
-    navigator.clipboard.writeText(texto);
-    alert('Copiado para área de transferência.\n\nAgora basta "colar" (CTRL + V) na canaleta 💻┃registro-de-ficha juntamente com as fotos do indivíduo.');
+
+    navigator.clipboard.writeText(texto).then(() => {
+        alert('Copiado para área de transferência.\n\nAgora basta "colar" (CTRL + V) na canaleta 💻┃registro-de-ficha juntamente com as fotos do indivíduo.');
+    }).catch(err => {
+        alert('Falha ao copiar o texto.');
+    });
 }
