@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Penal - ABCD</title>
+    <link rel="shortcut icon" href="./src/ABCD_favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <script src="./js/index.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <br>
+    
+        <!-- INFRAÇÕES LEVES -->
+        <div class="categoria">
+            <p><strong>INFRAÇÕES LEVES</strong></p>
+            <div class="categoria-linha">
+                <div class="infracaoLeve" data-codigo="53">
+                    <strong>Art. 53</strong> Pousar Aeronaves em local proibido
+                    <div class="info">
+                        <span>Multa: R$ 14.000,00</span>
+                    </div>
+                </div>
+                <div class="infracaoLeve" data-codigo="54">
+                    <strong>Art. 54</strong> Poluição Sonora
+                    <div class="info">
+                        <span>Multa: R$ 6.900,00</span>
+                    </div>
+                </div>
+                <div class="infracaoLeve" data-codigo="56">
+                    <strong>Art. 56</strong> Danos a terceiros
+                    <div class="info">
+                        <span>Multa: R$ 12.000,00</span>
+                    </div>
+                </div>
+                <div class="infracaoLeve" data-codigo="108">
+                    <strong>Art. 108</strong> Direção perigosa
+                    <div class="info">
+                        <span>Multa: R$ 6.500,00</span>
+                    </div>
+                </div>
+            </div>
+            <div class="categoria-linha">
+                <div class="infracaoLeve" data-codigo="162">
+                    <strong>Art. 162</strong> Dirigir sem habilitação
+                    <div class="info">
+                        <span>Multa: R$ 5.000,00</span>
+                    </div>
+                </div>
+                <div class="infracaoLeve" data-codigo="172">
+                    <strong>Art. 172</strong> Estacionar em local proibido
+                    <div class="info">
+                        <span>Multa: R$ 2.500,00</span>
+                    </div>
+                </div>
+                <div class="infracaoLeve" data-codigo="244">
+                    <strong>Art. 244</strong> Pilotar motocicleta sem o uso do capacete
+                    <div class="info">
+                        <span>Multa: R$ 1.500,00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CRIMES MÉDIOS -->
+        <div class="categoria">
+            <p><strong>CRIMES MÉDIOS</strong></p>
+            <div class="categoria-linha">
+                <div class="crimeMedio" data-codigo="02">
+                    <strong>Art. 02</strong> Uso de máscara
+                    <div class="info">
+                        <span>Serviços: 10 <br> Fiança: R$ 4.000,00</span>
+                    </div>
+                </div>
+                <div class="crimeMedio" data-codigo="19">
+                    <strong>Art. 19</strong> Porte de arma branca
+                    <div class="info">
+                        <span>Serviços: 10 <br> Fiança: R$ 5.500,00</span>
+                    </div>
+                </div>
+                <div class="crimeMedio" data-codigo="102">
+                    <strong>Art. 102</strong> Fuga
+                    <div class="info">
+                        <span>Serviços: 10 <br> Fiança: R$ 2.500,00</span>
+                    </div>
+                </div>
+                <div class="crimeMedio" data-codigo="139">
+                    <strong>Art. 139</strong> Calúnia, difamação e injúria
+                    <div class="info">
+                        <span>Serviços: 10 <br> Fiança: R$ 6.000,00</span>
+                    </div>
+                </div>
+            </div>
+            <div class="categoria-linha">
+                <div class="crimeMedio" data-codigo="147">
+                    <strong>Art. 147</strong> Ameaça
+                    <div class="info">
+                        <span>Serviços: 15 <br> Fiança: R$ 7.000,00</span>
+                    </div>
+                </div>
+                <div class="crimeMedio" data-codigo="150">
+                    <strong>Art. 150</strong> Invasão
+                    <div class="info">
+                        <span>Serviços: 10 <br> Fiança: R$ 3.300,00</span>
+                    </div>
+                </div>
+                <div class="crimeMedio" data-codigo="165">
+                    <strong>Art. 165</strong> Dirigir sob efeito de álcool/drogas
+                    <div class="info">
+                        <span>Serviços: 10 <br> Fiança: R$ 4.500,00</span>
+                    </div>
+                </div>
+                <div class="crimeMedio" data-codigo="173">
+                    <strong>Art. 173</strong> Racha / Corrida ilegal
+                    <div class="info">
+                        <span>Serviços: 10 <br> Fiança: R$ 5.100,00</span>
+                    </div>
+                </div>
+            </div>
+            <div class="categoria-linha">
+                <div class="crimeMedio" data-codigo="251-2">
+                    <strong>Art. 251 §2</strong> Posse/Porte colete balístico
+                    <div class="info">
+                        <span>Serviços: 10 <br> Fiança: R$ 4.900,00</span>
+                    </div>
+                </div>
+                <div class="crimeMedio" data-codigo="287">
+                    <strong>Art. 287</strong> Apologia ao crime
+                    <div class="info">
+                        <span>Serviços: 05 <br> Fiança: R$ 6.100,00</span>
+                    </div>
+                </div>
+                <div class="crimeMedio" data-codigo="289">
+                    <strong>Art. 289</strong> Posse de dinheiro sujo
+                    <div class="info">
+                        <span>Serviços: 05 <br> Fiança: R$ 2.000,00</span>
+                    </div>
+                </div>
+                <div class="crimeMedio" data-codigo="330">
+                    <strong>Art. 330</strong> Desobediência
+                    <div class="info">
+                        <span>Serviços: 10 <br> Fiança: R$ 8.000,00</span>
+                    </div>
+                </div>
+            </div>
+            <div class="categoria-linha">
+                <div class="crimeMedio" data-codigo="331">
+                    <strong>Art. 331</strong> Desacato
+                    <div class="info">
+                        <span>Serviços: 10 <br> Fiança: R$ 13.000,00</span>
+                    </div>
+                </div>
+                <div class="crimeMedio" data-codigo="333">
+                    <strong>Art. 333</strong> Tentativa de suborno
+                    <div class="info">
+                        <span>Serviços: 15 <br> Fiança: R$ 6.000,00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CRIMES GRAVES -->
+        <div class="categoria">
+            <p><strong>CRIMES GRAVES</strong></p>
+            <div class="categoria-linha">
+                <div class="crimeGrave" data-codigo="14">
+                    <strong>Art. 14</strong> Mal uso de arma com porte
+                    <div class="info">
+                        <span>Serviços: 20 <br> Fiança: R$ 5.000,00</span>
+                    </div>
+                </div>
+                <div class="crimeGrave" data-codigo="33">
+                    <strong>Art. 33</strong> Tráfico de drogas
+                    <div class="info">
+                        <span>Serviços: 10 <br> Fiança: R$ 4.200,00</span>
+                    </div>
+                </div>
+                <div class="crimeGrave" data-codigo="129">
+                    <strong>Art. 129</strong> Lesão corporal
+                    <div class="info">
+                        <span>Serviços: 10 <br> Fiança: R$ 4.000,00</span>
+                    </div>
+                </div>
+                <div class="crimeGrave" data-codigo="157-2">
+                    <strong>Art. 157 §2</strong> Furto
+                    <div class="info">
+                        <span>Serviços: 10 <br> Fiança: R$ 6.000,00</span>
+                    </div>
+                </div>
+                <div class="crimeGrave" data-codigo="157-3">
+                    <strong>Art. 157 §3</strong> Roubo a caixa registradora
+                    <div class="info">
+                        <span>Serviços: 10 <br> Fiança: R$ 2.900,00</span>
+                    </div>
+                </div>
+                <div class="crimeGrave" data-codigo="157-4">
+                    <strong>Art. 157 §4</strong> Roubo a caixa eletrônico
+                    <div class="info">
+                        <span>Serviços: 10 <br> Fiança: R$ 4.000,00</span>
+                    </div>
+                </div>
+                <div class="crimeGrave" data-codigo="158">
+                    <strong>Art. 158</strong> Extorsão
+                    <div class="info">
+                        <span>Serviços: 10 <br> Fiança: R$ 5.200,00</span>
+                    </div>
+                </div>
+                <div class="crimeGrave" data-codigo="180">
+                    <strong>Art. 180</strong> Receptação
+                    <div class="info">
+                        <span>Serviços: 10 <br> Fiança: R$ 5.000,00</span>
+                    </div>
+                </div>
+                <div class="crimeGrave" data-codigo="251">
+                    <strong>Art. 251</strong> Posse/Porte de Explosivos
+                    <div class="info">
+                        <span>Serviços: 5 <br> Fiança: R$ 3.300,00</span>
+                    </div>
+                </div>
+                <div class="crimeGrave" data-codigo="288">
+                    <strong>Art. 288</strong> Associação criminosa
+                    <div class="info">
+                        <span>Serviços: 10 <br> Fiança: R$ 3.500,00</span>
+                    </div>
+                </div>
+                <div class="crimeGrave" data-codigo="298">
+                    <strong>Art. 298</strong> Falsificação de documentos
+                    <div class="info">
+                        <span>Serviços: 10 <br> Fiança: R$ 3.500,00</span>
+                    </div>
+                </div>
+                <div class="crimeGrave" data-codigo="299">
+                    <strong>Art. 299</strong> Falsidade ideológica
+                    <div class="info">
+                        <span>Serviços: 10 <br> Fiança: R$ 4.000,00</span>
+                    </div>
+                </div>
+                <div class="crimeGrave" data-codigo="334">
+                    <strong>Art. 334</strong> Contrabando (itens ilegais)
+                    <div class="info">
+                        <span>Serviços: 10 <br> Fiança: R$ 4.000,00</span>
+                    </div>
+                </div>
+                <div class="crimeGrave" data-codigo="342">
+                    <strong>Art. 342</strong> Falso testemunho
+                    <div class="info">
+                        <span>Serviços: 10 <br> Fiança: R$ 10.000,00</span>
+                    </div>
+                </div>
+                <div class="crimeGrave" data-codigo="358">
+                    <strong>Art. 358</strong> Obstrução de justiça
+                    <div class="info">
+                        <span>Serviços: 15 <br> Fiança: R$ 5.000,00</span>
+                    </div>
+                </div>
+                <div class="crimeGrave" data-codigo="520">
+                    <strong>Art. 520</strong> Multas pendentes
+                    <div class="info">
+                        <span>Serviços: 10 <br> Fiança: R$ 4.000,00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+               
+        <!-- CRIMES GRAVÍSSIMOS -->
+        <div class="categoria">
+            <p><strong>CRIMES GRAVÍSSIMOS</strong></p>
+
+            <div class="categoria-linha">
+                <div class="crimeGravissimo" data-codigo="15">
+                    <strong>Art. 15</strong> Posse/Porte ilegal de arma de baixo calibre
+                    <div class="info">
+                        <span>Serviços: 10</span>
+                    </div>
+                </div>
+
+                <div class="crimeGravissimo" data-codigo="16">
+                    <strong>Art. 16</strong> Posse/Porte de arma de alto calibre
+                    <div class="info">
+                        <span>Serviços: 20</span>
+                    </div>
+                </div>
+
+                <div class="crimeGravissimo" data-codigo="16-1">
+                    <strong>Art. 16 §1</strong> Posse/Porte de Arma Restrita
+                    <div class="info">
+                        <span>Serviços: 30</span>
+                    </div>
+                </div>
+
+                <div class="crimeGravissimo" data-codigo="18">
+                    <strong>Art. 18</strong> Tráfico de armas
+                    <div class="info">
+                        <span>Serviços: 20</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="categoria-linha">
+                <div class="crimeGravissimo" data-codigo="33">
+                    <strong>Art. 33</strong> Tráfico Internacional
+                    <div class="info">
+                        <span>Serviços: 15</span>
+                    </div>
+                </div>
+
+                <div class="crimeGravissimo" data-codigo="57">
+                    <strong>Art. 57</strong> Posse/Porte ilegal de munições
+                    <div class="info">
+                        <span>Serviços: 10</span>
+                    </div>
+                </div>
+
+                <div class="crimeGravissimo" data-codigo="59">
+                    <strong>Art. 59</strong> Roubo a bancos
+                    <div class="info">
+                        <span>Serviços: 20</span>
+                    </div>
+                </div>
+
+                <div class="crimeGravissimo" data-codigo="60">
+                    <strong>Art. 60</strong> Roubo à joalheria
+                    <div class="info">
+                        <span>Serviços: 20</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="categoria-linha">
+                <div class="crimeGravissimo" data-codigo="92-1">
+                    <strong>Art. 92 §1</strong> Simulacro de arma
+                    <div class="info">
+                        <span>Serviços: 10</span>
+                    </div>
+                </div>
+
+                <div class="crimeGravissimo" data-codigo="129-1">
+                    <strong>Art. 129 §1</strong> Tentativa de homicídio
+                    <div class="info">
+                        <span>Serviços: 10</span>
+                    </div>
+                </div>
+
+                <div class="crimeGravissimo" data-codigo="148">
+                    <strong>Art. 148</strong> Sequestro
+                    <div class="info">
+                        <span>Serviços: 20</span>
+                    </div>
+                </div>
+
+                <div class="crimeGravissimo" data-codigo="148-1">
+                    <strong>Art. 148 §1</strong> Extorsão mediante sequestro
+                    <div class="info">
+                        <span>Serviços: 25</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="categoria-linha">
+                <div class="crimeGravissimo" data-codigo="157-1">
+                    <strong>Art. 157 §1</strong> Roubo
+                    <div class="info">
+                        <span>Serviços: 15</span>
+                    </div>
+                </div>
+
+                <div class="crimeGravissimo" data-codigo="157-5">
+                    <strong>Art. 157 §5</strong> Homicídio
+                    <div class="info">
+                        <span>Serviços: 25</span>
+                    </div>
+                </div>
+
+                <div class="crimeGravissimo" data-codigo="157-6">
+                    <strong>Art. 157 §6</strong> Latrocínio
+                    <div class="info">
+                        <span>Serviços: 30</span>
+                    </div>
+                </div>
+
+                <div class="crimeGravissimo" data-codigo="157-7">
+                    <strong>Art. 157 §7</strong> Roubo ao Nióbio / Galinheiro
+                    <div class="info">
+                        <span>Serviços: 20</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="categoria-linha">
+                <div class="crimeGravissimo" data-codigo="157-8">
+                    <strong>Art. 157 §8</strong> Roubo a loja de conv./armas
+                    <div class="info">
+                        <span>Serviços: 15</span>
+                    </div>
+                </div>
+
+                <div class="crimeGravissimo" data-codigo="157-9">
+                    <strong>Art. 157 §9</strong> Roubo a residência
+                    <div class="info">
+                        <span>Serviços: 15</span>
+                    </div>
+                </div>
+
+                <div class="crimeGravissimo" data-codigo="171">
+                    <strong>Art. 171</strong> Estelionato
+                    <div class="info">
+                        <span>Serviços: 10</span>
+                    </div>
+                </div>
+
+                <div class="crimeGravissimo" data-codigo="351">
+                    <strong>Art. 351</strong> Fuga da prisão / Resgate
+                    <div class="info">
+                        <span>Serviços: 15</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- FORMULÁRIO E RESULTADOS -->
+    <div class="container2">
+        <label>Informe o nome do detento: </label><input type="text" name="name" id="name" autocomplete="off"><br>
+        <label>Informe o CPF do detento: </label><input type="number" name="cpf" id="cpf" autocomplete="off"><br>
+        <br>
+
+        <div class="divArtigos">
+            <p>Artigos: <b id="TotalArtigos"></b></p>
+        </div>
+        <br>
+
+        <div class="meses">
+            <p>Serviços: <b id="meses"></b></p>
+        </div>
+        <br>
+
+        <div class="multa">
+            <p>Multa: <b id="multa" data-raw="0"></b></p>
+        </div>
+        <br>
+
+        <div class="fianca">
+            <p>Fiança: <b id="fianca"></b></p>
+        </div>
+
+        <br>
+        <button onclick="primario()" class="primary"><strong>RÉU PRIMÁRIO</strong></button>
+        <button onclick="colaborar()" class="colaborar"><strong>COLABORAÇÃO</strong></button>
+        <!-- <button onclick="advogado()" class="advogado"><strong>ADVOGADO</strong></button> -->
+        <br>
+        <div class="botoesResumo">
+            <button type="button" onclick="penaTotal()" class="btnResumo penaTotal">
+                <strong>PRISÃO</strong>
+            </button>
+            <button type="button" onclick="penaParcial()" class="btnResumo penaParcial">
+                <strong>PENA PARCIAL</strong>
+            </button>
+            <button type="button" onclick="liberdade()" class="btnResumo liberdade">
+                <strong>LIBERDADE</strong>
+            </button>
+        </div>
+        <!-- Popup Resumo -->
+        <div id="popupResumo" class="popup-container">
+            <div class="popup-content" style="background:#fff; padding:20px; position:relative; max-width:400px; width:90%; border-radius:8px;">
+
+                <button class="close-btn" onclick="fecharPopup()" aria-label="Fechar popup">&times;</button>
+
+                <div id="resumoTotal" style="display:none;">
+                    <h3>PRISÃO</h3>
+                    <h4>Indivíduo será encaminhado à prisão para cumprir sua pena.</h4>
+                    <br>
+                    <p><strong>Nome:</strong> <span id="nomeTotal"></span></p>
+                    <p><strong>CPF:</strong> <span id="cpfTotal"></span></p>
+                    <p><strong>Artigos:</strong> <span id="artigosTotal"></span></p>
+                    <p><strong>Pena (meses):</strong> <span id="penaTotal"></span></p>
+                    <p><strong>Multa:</strong> <span id="multaTotal"></span></p>
+                    <p><strong>Fiança:</strong> <span id="fiancaTotal"></span></p>
+                    <button type="button" onclick="copiarTexto('penaTotal')">Copiar</button>
+                </div>
+
+                <div id="resumoParcial" style="display:none;">
+                    <h3>PENA PARCIAL</h3>
+                    <h4>Indivíduo encaminhado à prisão porém com redução da pena devido pagamento das penas afiançáveis.</h4>
+                    <br>
+                    <p><strong>Nome:</strong> <span id="nomeParcial"></span></p>
+                    <p><strong>CPF:</strong> <span id="cpfParcial"></span></p>
+                    <p><strong>Artigos:</strong> <span id="artigosParcial"></span></p>
+                    <p><strong>Pena (meses):</strong> <span id="penaParcial"></span></p>
+                    <p><strong>Multa:</strong> <span id="multaParcial"></span></p>
+                    <p><strong>Fiança:</strong> <span id="fiancaParcial"></span></p>
+                    <button type="button" onclick="copiarTexto('penaParcial')">Copiar</button>
+                </div>
+
+                <div id="resumoLiberdade" style="display:none;">
+                    <h3>LIBERDADE</h3>
+                    <h4>Indivíduo segue em liberdade por pagamento total da fiança.</h4>
+                    <br>                    
+                    <p><strong>Nome:</strong> <span id="nomeLiberdade"></span></p>
+                    <p><strong>CPF:</strong> <span id="cpfLiberdade"></span></p>
+                    <p><strong>Artigos:</strong> <span id="artigosLiberdade"></span></p>
+                    <p><strong>Pena (meses):</strong> <span id="penaLiberdade"></span></p>
+                    <p><strong>Multa:</strong> <span id="multaLiberdade"></span></p>
+                    <p><strong>Fiança:</strong> <span id="fiancaLiberdade"></span></p>
+                    <button type="button" onclick="copiarTexto('liberdade')">Copiar</button>
+                </div>
+            </div>
+        </div>
+        <button onclick="clean()" class="clean"><strong>LIMPAR</strong></button>
+        <br>
+        <br>
+        <div id="obs">
+            <strong>Observações:</strong>
+            <ol>
+                <li>Inclua todos os artigos antes de selecionar as reduções;</li>
+                <li>Toda e qualquer redução de pena somente deve ser aplicada na presença de um advogado.</li>
+            </ol>
+        <br>            
+            <p><strong>Editado e publicado por:</strong> Caribio "Saghatz"</p>
+            
+        <!-- Ícone que abre o popup -->
+        <a href="#" onclick="abrirQRCode(); return false;">
+            <img src="./src/pix.png" alt="Doar via Pix" class="doarIcon">
+        </a>
+
+        <!-- Popup do QR Code -->
+        <div id="popupQRCode" class="popup-qrcode">
+            <div class="popup-conteudo">
+                <h2>Faça uma doação ❤️</h2>
+                <img src="./src/qrcode.jpg" alt="QR Code Pix" class="img-qrcode">
+                <p>Chave Pix: <strong>cgneto1990@gmail.com</strong></p>
+            </div>
+        </div>
+
+        </a>
+        </div>
+    </div>
+
+</body>
+</html>
