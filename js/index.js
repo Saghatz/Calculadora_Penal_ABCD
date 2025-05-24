@@ -8,7 +8,12 @@ let artigosSelecionados = [];
 let todosArtigos = {};
 
 $(document).ready(() => {
-    function aplicarArtigo(codigo, meses, multa, fianca, alerta = '') {
+function aplicarArtigo(codigo, meses, multa, fianca, alerta = '') {
+    // Limpa marcações de reduções, pois ao adicionar artigos novo total muda
+    $('#meses').removeData('primario').removeData('colaborado').removeData('advogado');
+    $('#meses').removeData('reducoes');  // <<< Zerar reduções acumuladas aqui!
+
+
         const input = $('#TotalArtigos').html().trim();
         if (!input.includes(codigo)) {
             artigosSelecionados.push(codigo);
@@ -19,6 +24,9 @@ $(document).ready(() => {
 
             $('#TotalArtigos').html(`${input}${codigo}, `);
             $('#multa').data('raw', multaTotal).html(formatarMoeda(multaTotal));
+
+            $('#meses').data('rawOriginal', mesesTotal);
+
             $('#meses').data('raw', mesesTotal).html(mesesTotal);
             $('#fianca').data('raw', fiancaTotal).html(formatarMoeda(fiancaTotal));
         }
@@ -51,7 +59,7 @@ $(document).ready(() => {
         "102": { nome: "Fuga", fianca: 2500, meses: 10 },
         "139": { nome: "Calúnia, difamação e injúria", fianca: 6000, meses: 10 },
         "147": { nome: "Ameaça", fianca: 7000, meses: 15 },
-        "150": { nome: "Invasão", fianca: 3300, meses: 0 },
+        "150": { nome: "Invasão", fianca: 3300, meses: 10 },
         "165": { nome: "Dirigir sob efeito de álcool/drogas", fianca: 4500, meses: 10 },
         "173": { nome: "Racha / corrida ilegal", fianca: 5100, meses: 10 },
         "251-2": { nome: "Posse/Porte colete balístico", fianca: 4900, meses: 10 },
@@ -115,32 +123,53 @@ function clean() {
     $('#name, #cpf').val('');
     $('#TotalArtigos').html('');
     $('#multa').html('').data('raw', 0);
-    $('#meses').html('').data('raw', 0);
+    $('#meses').html('').data('raw', 0).removeData('rawOriginal');
     $('#fianca').html('').data('raw', 0);
     $('#Resumo').html('');
-    $('#meses').removeData('reduzido').removeData('colaborado');
+    $('#meses').removeData('primario').removeData('colaborado').removeData('advogado');
     artigosSelecionados = [];
 }
 
+function aplicarReducao(tipo, fator) {
+    if ($('#meses').data(tipo)) return alert(`A redução de pena por ${tipo} já foi aplicada.`);
+
+    let valorOriginal = Number($('#meses').data('rawOriginal')) || 0;
+    if (valorOriginal <= 0) {
+        alert('Nenhuma pena registrada para redução.');
+        return;
+    }
+
+    // Busca as reduções aplicadas ou inicia array vazio
+    let reducoes = $('#meses').data('reducoes') || [];
+
+    // Adiciona nova redução
+    reducoes.push(fator);
+    $('#meses').data('reducoes', reducoes);
+
+    // Soma as reduções em valor absoluto sobre o original
+    let somaReducoes = reducoes.reduce((acc, f) => acc + (valorOriginal * (1 - f)), 0);
+
+    // Subtrai do valor original para obter o valor final
+    let penalidadeFinal = valorOriginal - somaReducoes;
+
+    // Atualiza valor e marca que redução foi aplicada
+    $('#meses').html(Math.round(penalidadeFinal));
+    $('#meses').data('raw', penalidadeFinal);
+    $('#meses').data(tipo, true);
+}
+
 function primario() {
-    if ($('#meses').data('reduzido')) return alert('A redução de pena já foi aplicada.');
-    let totalMeses = Number($('#meses').data('raw')) || 0;
-    if (totalMeses > 0) {
-        let penalidadeReduzida = totalMeses * 0.5;
-        $('#meses').html(Math.round(penalidadeReduzida));
-        $('#meses').data('raw', penalidadeReduzida).data('reduzido', true);
-    } else alert('Nenhuma pena registrada para redução.');
+    aplicarReducao('primario', 0.5);
 }
 
 function colaborar() {
-    if ($('#meses').data('colaborado')) return alert('A redução de pena por colaboração já foi aplicada.');
-    let totalMeses = Number($('#meses').data('raw')) || 0;
-    if (totalMeses > 0) {
-        let penalidadeReduzida = totalMeses * 0.9;
-        $('#meses').html(Math.round(penalidadeReduzida));
-        $('#meses').data('raw', penalidadeReduzida).data('colaborado', true);
-    } else alert('Nenhuma pena registrada para redução.');
+    aplicarReducao('colaborado', 0.9);
 }
+
+function advogado() {
+    aplicarReducao('advogado', 0.8);
+}
+
 
 function finalizar(event) {
     if (event) event.preventDefault();
@@ -248,7 +277,7 @@ Fiança: ${getText('#fiancaLiberdade')}`;
             break;
 
         default:
-            alert('Tipo de cópia inválido.');
+            alert('Tipo de cópia inválida.');
             return;
     }
 
