@@ -9,30 +9,43 @@ let todosArtigos = {};
 
 $(document).ready(() => {
 function aplicarArtigo(codigo, meses, multa, fianca, alerta = '') {
-    // Limpa marcações de reduções, pois ao adicionar artigos novo total muda
-    $('#meses').removeData('primario').removeData('colaborado').removeData('advogado');
-    $('#meses').removeData('reducoes');  // <<< Zerar reduções acumuladas aqui!
 
-
-        const input = $('#TotalArtigos').html().trim();
-        if (!input.includes(codigo)) {
-            artigosSelecionados.push(codigo);
-
-            const mesesTotal = (Number($('#meses').data('raw')) || 0) + meses;
-            const multaTotal = (Number($('#multa').data('raw')) || 0) + multa;
-            const fiancaTotal = (Number($('#fianca').data('raw')) || 0) + fianca;
-
-            $('#TotalArtigos').html(`${input}${codigo}, `);
-            $('#multa').data('raw', multaTotal).html(formatarMoeda(multaTotal));
-
-            $('#meses').data('rawOriginal', mesesTotal);
-
-            $('#meses').data('raw', mesesTotal).html(mesesTotal);
-            $('#fianca').data('raw', fiancaTotal).html(formatarMoeda(fiancaTotal));
-        }
-
-        if (alerta) alert(alerta);
+    if ($('#meses').data('rawOriginal') === undefined) {
+        $('#meses').data('rawOriginal', 0);
     }
+    if ($('#meses').data('raw') === undefined) {
+        $('#meses').data('raw', 0);
+    }
+    if ($('#multa').data('raw') === undefined) {
+        $('#multa').data('raw', 0);
+    }
+    if ($('#fianca').data('raw') === undefined) {
+        $('#fianca').data('raw', 0);
+    }
+
+    const input = $('#TotalArtigos').html().trim();
+    if (!input.includes(codigo)) {
+        artigosSelecionados.push(codigo);
+
+        let mesesOriginal = Number($('#meses').data('rawOriginal')) || 0;
+        mesesOriginal += meses;
+
+        let multaTotal = (Number($('#multa').data('raw')) || 0) + multa;
+        let fiancaTotal = (Number($('#fianca').data('raw')) || 0) + fianca;
+
+        $('#TotalArtigos').html(`${input}${codigo}, `);
+        $('#multa').data('raw', multaTotal).html(formatarMoeda(multaTotal));
+
+        $('#meses').data('rawOriginal', mesesOriginal);
+
+        $('#meses').data('raw', mesesOriginal).html(mesesOriginal);
+
+        $('#fianca').data('raw', fiancaTotal).html(formatarMoeda(fiancaTotal));
+
+    }
+
+    if (alerta) alert(alerta);
+}
 
     function aplicarArtigosCategoria(categoria, artigos) {
         for (const [codigo, dados] of Object.entries(artigos)) {
@@ -118,7 +131,6 @@ function aplicarArtigo(codigo, meses, multa, fianca, alerta = '') {
     aplicarArtigosCategoria('crimeGravissimo', crimesGravissimos);
 });
 
-
 function clean() {
     $('#name, #cpf').val('');
     $('#TotalArtigos').html('');
@@ -139,20 +151,15 @@ function aplicarReducao(tipo, fator) {
         return;
     }
 
-    // Busca as reduções aplicadas ou inicia array vazio
     let reducoes = $('#meses').data('reducoes') || [];
 
-    // Adiciona nova redução
     reducoes.push(fator);
     $('#meses').data('reducoes', reducoes);
 
-    // Soma as reduções em valor absoluto sobre o original
-    let somaReducoes = reducoes.reduce((acc, f) => acc + (valorOriginal * (1 - f)), 0);
+    let fatorAcumulado = reducoes.reduce((acc, f) => acc * f, 1);
 
-    // Subtrai do valor original para obter o valor final
-    let penalidadeFinal = valorOriginal - somaReducoes;
+    let penalidadeFinal = valorOriginal * fatorAcumulado;
 
-    // Atualiza valor e marca que redução foi aplicada
     $('#meses').html(Math.round(penalidadeFinal));
     $('#meses').data('raw', penalidadeFinal);
     $('#meses').data(tipo, true);
@@ -169,7 +176,6 @@ function colaborar() {
 function advogado() {
     aplicarReducao('advogado', 0.8);
 }
-
 
 function finalizar(event) {
     if (event) event.preventDefault();
@@ -209,27 +215,44 @@ function finalizar(event) {
     $('#multaLiberdade').text(formatarMoeda(totalMulta));
     $('#fiancaLiberdade').text(formatarMoeda(totalFianca));
 
-    // Não limpar os dados aqui para manter visível no popup
+    $('#nomeMultar').text(nome);
+    $('#cpfMultar').text(cpf);
+    $('#artigosMultar').text(totalArtigos);
+    $('#penaMultar').text(totalMeses);
+    $('#multaMultar').text(formatarMoeda(totalMulta));
+    $('#fiancaMultar').text(formatarMoeda(totalFianca));
+
+}
+
+function esconderTodosResumos() {
+    $('#resumoTotal, #resumoParcial, #resumoLiberdade, #resumoMultar').hide();
 }
 
 function penaTotal() {
     finalizar();
     $('#resumoTotal').show();
-    $('#resumoParcial, #resumoLiberdade').hide();
+    $('#resumoParcial, #resumoLiberdade, #resumoMultar').hide();
     $('#popupResumo').fadeIn();
 }
 
 function penaParcial() {
     finalizar();
     $('#resumoParcial').show();
-    $('#resumoTotal, #resumoLiberdade').hide();
+    $('#resumoTotal, #resumoLiberdade, #resumoMultar').hide();
     $('#popupResumo').fadeIn();
 }
 
 function liberdade() {
     finalizar();
     $('#resumoLiberdade').show();
-    $('#resumoTotal, #resumoParcial').hide();
+    $('#resumoTotal, #resumoParcial, #resumoMultar').hide();
+    $('#popupResumo').fadeIn();
+}
+
+function multar() {
+    finalizar();
+    $('#resumoMultar').show();
+    $('#resumoTotal, #resumoParcial, #resumoLiberdade').hide();
     $('#popupResumo').fadeIn();
 }
 
@@ -274,6 +297,16 @@ Artigos: ${getText('#artigosLiberdade')}
 Pena: ${getText('#penaLiberdade')}
 Multa: ${getText('#multaLiberdade')}
 Fiança: ${getText('#fiancaLiberdade')}`;
+            break;
+
+        case 'multar':
+            texto = `**MULTAR** \nIndivíduo foi autuado.\n
+Nome: ${getText('#nomeMultar')}
+CPF: ${getText('#cpfMultar')}
+Artigos: ${getText('#artigosMultar')}
+Pena: ${getText('#penaMultar')}
+Multa: ${getText('#multaMultar')}
+Fiança: ${getText('#fiancaMultar')}`;
             break;
 
         default:
