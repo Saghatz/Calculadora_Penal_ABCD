@@ -84,6 +84,10 @@ button {
     background: #067233;
 }
 
+.multar:hover{
+    background: #b8204dd8;
+}
+
 /* BOTÕES 3ª LINHA*/
 .clean:hover {
     background: #ca6a10;
@@ -226,76 +230,6 @@ button {
     margin-bottom: 10px;
 }
 
-
-@media (max-width: 992px) {
-    button {
-        font-size: 12px;
-        width: 120px;
-        height: 28px;
-    }
-    .container {
-        padding: 0.5em;
-        margin-top: 450px;
-    }
-
-    .container2 {
-        position: fixed;
-        top: 25px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 92%;
-        height: auto;
-        border-radius: 30px;
-        z-index: 999;
-    }
-
-    .voltarFinalizado, .copiarFinalizado {
-        margin-top: 130px;
-    }
-
-    .finalizado {
-        margin-top: 210px;
-    }
-}
-
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-        padding: 0.5em;
-    }
-    .container2 {
-        top: 50%;
-        left: 50%;
-    }
-}
-
-@media (max-width: 576px) {
-    .container {
-        padding: 0.3em;
-    }
-    .container2 {
-        top: 50%;
-        left: 50%;
-    }
-}
-
-@media (max-width: 400px) {
-    .container2 {
-        width: 95%;
-        padding: 20px;
-    }
-
-    .popup-content {
-        width: 90%;
-        padding: 15px;
-    }
-
-    button {
-        width: 100%;
-        font-size: 12px;
-    }
-}
-
 /* Estilo do conteúdo do popup */
 .popup-content {
     background: white;
@@ -419,4 +353,77 @@ button:hover {
     border: none;
     font-size: 18px;
     cursor: pointer;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 992px) {
+    button {
+        font-size: 12px;
+        width: 120px;
+        height: 28px;
+    }
+    .container {
+        padding: 0.5em;
+        margin-top: 470px;
+        width: calc(100% - 1em);
+        margin: 460px auto 0 auto;
+    }
+
+    .container2 {
+        position: fixed;
+        top: 25px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 92%;
+        height: auto;
+        border-radius: 30px;
+        z-index: 999;
+    }
+
+    .voltarFinalizado, .copiarFinalizado {
+        margin-top: 130px;
+    }
+
+    .finalizado {
+        margin-top: 210px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        padding: 0.5em;
+    }
+    .container2 {
+        top: 50%;
+        left: 50%;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding: 0.3em;
+    }
+    .container2 {
+        top: 50%;
+        left: 50%;
+    }
+}
+
+@media (max-width: 400px) {
+    .container2 {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .popup-content {
+        width: 90%;
+        padding: 15px;
+    }
+
+    button {
+        width: 100%;
+        font-size: 12px;
+    }
 }
