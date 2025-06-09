@@ -462,6 +462,7 @@
                 <strong>LIBERDADE</strong>
             </button>
         </div>
+        
         <!-- Popup Resumo -->
         <div id="popupResumo" class="popup-container">
             <div class="popup-content" style="background:#fff; padding:20px; position:relative; max-width:400px; width:90%; border-radius:8px;">
@@ -506,9 +507,28 @@
                     <p><strong>Fiança:</strong> <span id="fiancaLiberdade"></span></p>
                     <button type="button" onclick="copiarTexto('liberdade')">Copiar</button>
                 </div>
+
+                <div id="resumoMultar" style="display:none;">
+                    <h3>MULTAR</h3>
+                    <h4>Indivíduo será autuado de acordo com suas infrações.</h4>
+                    <br>                    
+                    <p><strong>Nome:</strong> <span id="nomeMultar"></span></p>
+                    <p><strong>CPF:</strong> <span id="cpfMultar"></span></p>
+                    <p><strong>Artigos:</strong> <span id="artigosMultar"></span></p>
+                    <p><strong>Pena (meses):</strong> <span id="penaMultar"></span></p>
+                    <p><strong>Multa:</strong> <span id="multaMultar"></span></p>
+                    <p><strong>Fiança:</strong> <span id="fiancaMultar"></span></p>
+                    <button type="button" onclick="copiarTexto('multar')">Copiar</button>
+                </div>
+
             </div>
         </div>
-        <button onclick="clean()" class="clean"><strong>LIMPAR</strong></button>
+        <button type="button" onclick="multar()" class="btnResumo multar">
+            <strong>MULTAR</strong>
+        </button>
+        <button onclick="clean()" class="clean">
+            <strong>LIMPAR</strong>
+        </button>
         <br>
         <br>
         <div id="obs">
